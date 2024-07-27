@@ -1,5 +1,7 @@
 # antiTrackElements
 
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+
 一个支持自动删除网址中追踪参数的 Chrome 浏览器扩展。
 
 ## 如何安装
