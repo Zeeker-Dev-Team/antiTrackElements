@@ -1,4 +1,21 @@
 {
   "projectName": "antiTrackElements",
-  "projectOwner": "Zeeker-Dev-Team"
+  "projectOwner": "Zeeker-Dev-Team",
+  "files": [
+    "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "CycleBai",
+      "name": "CycleBai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/168964798?v=4",
+      "profile": "https://github.com/CycleBai",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ]
 }
