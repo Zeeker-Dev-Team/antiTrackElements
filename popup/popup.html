@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Extension Popup</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .popup {
+            width: 300px; /* 指定宽度 */
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="popup mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="px-6 py-4">
+            <h1 class="text-xl font-semibold text-gray-800">扩展名</h1>
+            <p class="text-gray-600">版本: 1.0.0</p>
+            <div class="mt-4 text-center">
+                <label class="switch">
+                    <input type="checkbox" id="switch" checked>
+                    <span class="slider"></span>
+                </label>
+                <div class="text-gray-700 mt-2">在此网站启用</div>
+            </div>
+            <div class="mt-4">
+                <label class="flex items-center">
+                    <input type="checkbox" id="checkbox1" class="form-checkbox h-5 w-5 text-blue-600" checked>
+                    <span class="ml-2 text-gray-700">在此网站删除追踪参数</span>
+                </label>
+                <label class="flex items-center mt-2">
+                    <input type="checkbox" id="checkbox2" class="form-checkbox h-5 w-5 text-blue-600" checked>
+                    <span class="ml-2 text-gray-700">调试模式</span>
+                </label>
+            </div>
+            <!--
+            <div class="mt-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                    前往设置
+                </button>
+            </div>
+            -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

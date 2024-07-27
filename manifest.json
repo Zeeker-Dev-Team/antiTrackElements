@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Anti Track Elements",
+    "description": "An extension to remove tracking elements from webpages.",
+    "version": "0.1",
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": "icon.png"
+    },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "tabs",
+      "declarativeNetRequest"
+    ],
+    "background": {
+      "service_worker": "scripts/background.js"
+    },
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
+  
