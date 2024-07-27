@@ -13,3 +13,14 @@
 `docs/` 目录下所有资源使用 CC-BY-NC-SA 4.0 协议共享。
 
 您可以在遵循许可证的情况下自由分发/使用此项目。
+
+## 贡献者
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
