@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置 - Anti Track Elements</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="popup mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="px-6 py-4">
+            <h1 class="text-xl font-semibold text-gray-800">设置</h1>
+            <p class="text-gray-600">配置需要删除的追踪参数</p>
+            <div class="mt-4">
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2">参数</th>
+                            <th class="py-2">类型</th>
+                            <th class="py-2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paramsTable">
+                        <!-- 行将动态添加 -->
+                    </tbody>
+                </table>
+                <div class="mt-4">
+                    <input type="text" id="newParam" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="新参数">
+                    <select id="newParamType" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                        <option value="string">字符串</option>
+                        <option value="regex">正则表达式</option>
+                        <option value="wildcard">通配符</option>
+                    </select>
+                    <button id="addButton" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 mt-2">添加参数</button>
+                </div>
+            </div>
+            <div class="mt-4">
+                <button id="saveButton" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700">保存</button>
+                <button id="exportButton" class="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-700 ml-2">导出</button>
+                <input type="file" id="importInput" class="hidden">
+                <button id="importButton" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 ml-2">导入</button>
+            </div>
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

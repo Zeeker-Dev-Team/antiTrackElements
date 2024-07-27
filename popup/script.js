@@ -66,3 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function openOptionsPage () {
+    chrome.tabs.create({ url: chrome.runtime.getURL("options/options.html") });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var button = document.getElementById('openOptions');
+    button.addEventListener('click', function() {
+        openOptionsPage();
+    });
+});

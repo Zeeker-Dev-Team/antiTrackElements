@@ -1,75 +1,55 @@
-// background.js
-
-// 规则 ID
 const RULE_ID = 1;
 
-// 初始化时加载已保存的设置并应用规则
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.storage.sync.get(null, (result) => {
-    applyDefaultRule(); // 默认启用规则
-    for (let domain in result) {
-      const settings = result[domain];
-      if (settings && !settings.switch && !settings.checkbox1) {
-        removeRuleForDomain(); // 如果 `switch` 和 `checkbox1` 均未选中，则移除规则
-      }
-    }
-  });
-  console.log('Anti Track Elements extension installed.');
-});
+// 应用默认规则
+function applyDefaultRule(trackingParams) {
+  const removeQueryParamList = trackingParams.map(paramObj => paramObj.param);
 
-// 动态添加默认规则
-function applyDefaultRule() {
   chrome.declarativeNetRequest.updateDynamicRules({
     addRules: [{
       id: RULE_ID,
       priority: 1,
       action: {
-        type: "redirect",
+        type: 'redirect',
         redirect: {
           transform: {
             queryTransform: {
-              removeParams: [
-                "utm_source",
-                "utm_medium",
-                "utm_campaign",
-                "utm_term",
-                "utm_content",
-                "utm_*"
-              ]
+              removeParams: removeQueryParamList
             }
           }
         }
       },
       condition: {
-        urlFilter: '*://*/*',
-        resourceTypes: ["main_frame"]
+        urlFilter: '|http*',
+        resourceTypes: ["main_frame", "sub_frame"]
       }
     }],
     removeRuleIds: [RULE_ID]
   }, () => {
-    console.log('Applied default rule');
+    console.log('Default tracking parameters removal rule applied.');
   });
 }
 
-// 动态移除规则
+// 删除特定域名的规则
 function removeRuleForDomain() {
   chrome.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: [RULE_ID]
   }, () => {
-    console.log('Removed rule');
+    console.log('Tracking parameters removal rule removed for this domain.');
   });
 }
 
-// 监听存储变化并更新规则
-chrome.storage.onChanged.addListener((changes, areaName) => {
-  if (areaName === 'sync') {
-    for (let domain in changes) {
-      const settings = changes[domain].newValue;
-      if (settings && !settings.switch && !settings.checkbox1) {
-        removeRuleForDomain(); // 如果 `switch` 和 `checkbox1` 均未选中，则移除规则
-      } else {
-        applyDefaultRule(); // 否则启用默认规则
-      }
-    }
+// 初始应用默认规则
+chrome.storage.sync.get(['trackingParams'], (result) => {
+  const trackingParams = result.trackingParams || [];
+  applyDefaultRule(trackingParams);
+});
+
+// 添加监听器，以便在存储更改时更新规则
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  if (namespace === 'sync') {
+    chrome.storage.sync.get(['trackingParams'], (result) => {
+      const trackingParams = result.trackingParams || [];
+      applyDefaultRule(trackingParams);
+    });
   }
 });
