@@ -37,6 +37,11 @@ jobs:
     permissions:
       issues: write
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
       - name: Get all commits on this push
         id: get_commits
         run: |
