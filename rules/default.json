@@ -1,0 +1,7 @@
+[
+    { "param": "utm_source", "type": "string" },
+    { "param": "utm_medium", "type": "string" },
+    { "param": "utm_campaign", "type": "string" },
+    { "param": "utm_term", "type": "string" },
+    { "param": "utm_content", "type": "string" }
+]

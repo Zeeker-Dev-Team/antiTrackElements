@@ -7,26 +7,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const exportButton = document.getElementById('exportButton');
     const importButton = document.getElementById('importButton');
     const importInput = document.getElementById('importInput');
+    const presetSelect = document.getElementById('presetSelect');
 
-    // 默认参数列表
-    const defaultParams = [
-        { param: "utm_source", type: "string" },
-        { param: "utm_medium", type: "string" },
-        { param: "utm_campaign", type: "string" },
-        { param: "utm_term", type: "string" },
-        { param: "utm_content", type: "string" }
-    ];
-
-    // 初始化参数数组
     let params = [];
+    let presetParams = {};
 
-    // 加载已保存的参数
-    chrome.storage.sync.get('trackingParams', function(data) {
-        params = data.trackingParams && data.trackingParams.length > 0 ? data.trackingParams : defaultParams;
-        renderTable(params);
-    });
+    // 读取 maps.json 文件
+    fetch(chrome.runtime.getURL('rules/maps.json'))
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(preset => {
+                presetParams[preset.name] = preset.loc;
+                const option = document.createElement('option');
+                option.value = preset.name;
+                option.textContent = preset.name;
+                presetSelect.appendChild(option);
+            });
 
-    // 渲染表格
+            // 加载已保存的参数或默认参数
+            chrome.storage.sync.get('trackingParams', function(storageData) {
+                const defaultPreset = data.find(preset => preset.name === "默认");
+                const defaultPresetLoc = defaultPreset ? defaultPreset.loc : null;
+                if (storageData.trackingParams && storageData.trackingParams.length > 0) {
+                    params = storageData.trackingParams;
+                    renderTable(params);
+                } else if (defaultPresetLoc) {
+                    loadPresetParams(defaultPresetLoc);
+                }
+            });
+        })
+        .catch(error => console.error('Error loading maps.json:', error));
+
+    function loadPresetParams(presetLoc) {
+        fetch(chrome.runtime.getURL(presetLoc))
+            .then(response => response.json())
+            .then(data => {
+                params = data;
+                renderTable(params);
+            })
+            .catch(error => console.error(`Error loading ${presetLoc}:`, error));
+    }
+
     function renderTable(params) {
         paramsTable.innerHTML = '';
         params.forEach((paramObj, index) => {
@@ -49,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
             paramsTable.appendChild(row);
         });
 
-        // 绑定删除按钮事件
         document.querySelectorAll('.delete-button').forEach(button => {
             button.addEventListener('click', function() {
                 const index = parseInt(this.getAttribute('data-index'));
@@ -58,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // 绑定输入框事件
         document.querySelectorAll('.param-input').forEach(input => {
             input.addEventListener('input', function() {
                 const index = parseInt(this.getAttribute('data-index'));
@@ -66,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // 绑定类型选择事件
         document.querySelectorAll('.param-type').forEach(select => {
             select.addEventListener('change', function() {
                 const index = parseInt(this.getAttribute('data-index'));
@@ -75,7 +93,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 添加参数
+    presetSelect.addEventListener('change', function() {
+        const selectedPreset = this.value;
+        const presetLoc = presetParams[selectedPreset];
+        loadPresetParams(presetLoc);
+    });
+
     addButton.addEventListener('click', function() {
         const newParam = newParamInput.value.trim();
         const newParamType = newParamTypeSelect.value;
@@ -86,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 保存参数
     saveButton.addEventListener('click', function() {
         const params = Array.from(document.querySelectorAll('.param-input')).map((input, index) => {
             return { param: input.value.trim(), type: document.querySelectorAll('.param-type')[index].value };
@@ -97,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 导出参数
     exportButton.addEventListener('click', function() {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(params));
         const downloadAnchorNode = document.createElement('a');
@@ -108,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadAnchorNode.remove();
     });
 
-    // 导入参数
     importButton.addEventListener('click', function() {
         importInput.click();
     });

@@ -18,6 +18,12 @@
     },
     "host_permissions": [
       "<all_urls>"
-    ]
+    ],
+    "web_accessible_resources": [
+    {
+      "resources": ["rules/maps.json", "rules/*.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
   }
   
