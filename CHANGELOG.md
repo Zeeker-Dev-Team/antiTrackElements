@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased changes
 
+### Continuous Integration
+- Add `autocomment.yml`. [`2cf6e68`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2cf6e68)
+
 ### Documentation
+- :robot: changelog file generated [`1bc716a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1bc716a)
 - Add some badges in README [`06b9ba2`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/06b9ba2)
 
 ## stable_0.1.2 (2024-07-28)
