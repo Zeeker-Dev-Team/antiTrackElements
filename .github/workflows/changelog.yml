@@ -46,7 +46,7 @@ jobs:
         id: get_commits
         run: |
             # 获取所有提交的日志
-            commits=$(git log --pretty=format:"Commit SHA: %H%nAuthor: %an%nMessage: %s%nShort ID: %h%nDate: %cd%n" --date=short ${{ github.event.before }}..${{ github.sha }})
+            commits=$(git log --pretty=format:"Commit SHA: %H%nAuthor: %an%nMessage: %s%nShort ID: %h%nDate: %cd%n%n" --date=short ${{ github.event.before }}..${{ github.sha }})
             echo "$commits"
 
             # 将提交信息设置为输出
