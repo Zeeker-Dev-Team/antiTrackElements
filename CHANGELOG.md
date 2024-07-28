@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use workflows to generate changelog [`120f8a5`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/120f8a5)
 
 ### Documentation
+- add actions-user as a contributor for doc [`0f920e8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/0f920e8)
+- update .all-contributorsrc [`32a0538`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/32a0538)
+- update README.md [`b92dcc6`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b92dcc6)
+- :robot: changelog file generated [`31e1f11`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/31e1f11)
 - :robot: changelog file generated [`3304730`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3304730)
 - Add FAQ files [`a7a525a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/a7a525a)
 - Add "Install Stable Version" part. [`b7e2bd9`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b7e2bd9)
