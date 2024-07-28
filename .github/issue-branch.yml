@@ -1,2 +1,3 @@
-mode: immediate
-branchName: short
+mode: chatops
+branchName: tiny
+openDraftPR: true
