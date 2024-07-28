@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Continuous Integration
+- Auto comment issue #10 when push [`501a340`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/501a340)
 - Use issue-branch.yml to auto create a branch when an issue was created [`c7fa61c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/c7fa61c)
 - Delete useless files [`dc9050c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/dc9050c)
 - Use keylabeler.yml to auto add labels. [`578281e`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/578281e)
@@ -15,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add `autocomment.yml`. [`2cf6e68`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2cf6e68)
 
 ### Documentation
+- :robot: changelog file generated [`bbc267d`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/bbc267d)
 - :robot: changelog file generated [`c2332ed`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/c2332ed)
 - :robot: changelog file generated [`00cd088`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/00cd088)
 - :robot: changelog file generated [`d95cfd4`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/d95cfd4)
