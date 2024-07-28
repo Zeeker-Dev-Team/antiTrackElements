@@ -64,5 +64,9 @@ jobs:
             ### Commits
 
             ```
+
             ${{ steps.get_commits.outputs.commits }}
+
             ```
+
+            > *I am a robot and this action was performed automatically.*
