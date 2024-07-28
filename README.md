@@ -1,6 +1,19 @@
 # antiTrackElements
 
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+<p align="center">
+  <img 
+  src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white"
+  alt="Badge-Onventionalcommits"
+  >
+  <img 
+  src="https://img.shields.io/badge/Latest_Released_Version-0.1.2-blue"
+  alt="Badge-LatestVersion"
+  >
+  <img 
+  src="https://github.com/Zeeker-Dev-Team/antiTrackElements/actions/workflows/changelog.yml/badge.svg"
+  alt="Badge-WorkflowStatus"
+  >
+</p>
 
 一个支持自动删除网址中追踪参数的 Chrome 浏览器扩展。
 
