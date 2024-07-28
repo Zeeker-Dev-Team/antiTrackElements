@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chrome Extension Popup</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         .popup {
             width: 300px; /* 指定宽度 */
@@ -72,10 +73,13 @@
                     <span class="ml-2 text-gray-700">调试模式</span>
                 </label>
             </div>
-            <div class="mt-4">
+            <div class="mt-4 flex justify-between items-center">
                 <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700" id="openOptions">
                     前往设置
                 </button>
+                <a href="https://github.com/Zeeker-Dev-Team/antiTrackElements" target="_blank" class="text-gray-600 hover:text-gray-900">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
             </div>
         </div>
     </div>
