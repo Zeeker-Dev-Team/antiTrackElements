@@ -8,6 +8,10 @@
 
 参见 [How-to-Install.md](docs/How-to-Install.md) 了解详情。
 
+## 提问之前
+
+参见 [faq.md](docs/faq.md) 了解常见问题解答。
+
 ## 版权信息
 
 本项目使用 MIT 许可证作为主许可证，但部分目录使用特别许可证：
