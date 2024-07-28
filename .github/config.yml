@@ -1,0 +1,13 @@
+# Configuration for sentiment-bot - https://github.com/behaviorbot/sentiment-bot
+
+# *Required* toxicity threshold between 0 and .99 with the higher numbers being the most toxic
+# Anything higher than this threshold will be marked as toxic and commented on
+sentimentBotToxicityThreshold: .5
+
+# *Required* Comment to reply with
+sentimentBotReplyComment: >
+  Please be sure to review the Code of Conduct and be respectful of other users. 
+  The core maintainers have been notified and will review this interaction for compliance with our Code of Conduct.
+  @CycleBai
+
+# Note: the bot will only work if your repository has a Code of Conduct
