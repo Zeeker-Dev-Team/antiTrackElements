@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Continuous Integration
+- Fix error [`1275cc1`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1275cc1)
 - Auto comment issue #10 when push [`501a340`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/501a340)
 - Use issue-branch.yml to auto create a branch when an issue was created [`c7fa61c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/c7fa61c)
 - Delete useless files [`dc9050c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/dc9050c)
@@ -16,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add `autocomment.yml`. [`2cf6e68`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2cf6e68)
 
 ### Documentation
+- :robot: changelog file generated [`2bc9d0e`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2bc9d0e)
 - :robot: changelog file generated [`bbc267d`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/bbc267d)
 - :robot: changelog file generated [`c2332ed`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/c2332ed)
 - :robot: changelog file generated [`00cd088`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/00cd088)
@@ -25,6 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add some badges in README [`06b9ba2`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/06b9ba2)
 
 ### Other
+- Merge branch 'main' of https://github.com/Zeeker-Dev-Team/antiTrackElements [`5366b29`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/5366b29)
 - Merge branch 'main' of https://github.com/Zeeker-Dev-Team/antiTrackElements [`4ed7f20`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/4ed7f20)
 
 ## stable_0.1.2 (2024-07-28)
