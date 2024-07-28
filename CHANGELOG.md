@@ -7,13 +7,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Continuous Integration
+- Remove some feat thar not working [`11d77e8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/11d77e8)
 - Let workflow auto add label when inclue some text in content [`00103ff`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/00103ff)
 - Add `autocomment.yml`. [`2cf6e68`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2cf6e68)
 
 ### Documentation
+- :robot: changelog file generated [`d95cfd4`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/d95cfd4)
 - :robot: changelog file generated [`8682da8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/8682da8)
 - :robot: changelog file generated [`1bc716a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1bc716a)
 - Add some badges in README [`06b9ba2`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/06b9ba2)
+
+### Other
+- Merge branch 'main' of https://github.com/Zeeker-Dev-Team/antiTrackElements [`4ed7f20`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/4ed7f20)
 
 ## stable_0.1.2 (2024-07-28)
 
