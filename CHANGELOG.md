@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Continuous Integration
+- Update oupput format [`e9a011c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/e9a011c)
 - Update format [`90d5a90`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/90d5a90)
 - Update oupput format [`29fb51e`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/29fb51e)
 - Update format [`1854ecf`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1854ecf)
@@ -20,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add `autocomment.yml`. [`2cf6e68`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2cf6e68)
 
 ### Documentation
+- :robot: changelog file generated [`e153201`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/e153201)
 - :robot: changelog file generated [`1794e0c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1794e0c)
 - :robot: changelog file generated [`bc6aa07`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/bc6aa07)
 - :robot: changelog file generated [`2bc9d0e`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2bc9d0e)
