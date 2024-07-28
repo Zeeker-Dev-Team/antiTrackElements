@@ -7,9 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Continuous Integration
+- Let workflow auto add label when inclue some text in content [`00103ff`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/00103ff)
 - Add `autocomment.yml`. [`2cf6e68`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2cf6e68)
 
 ### Documentation
+- :robot: changelog file generated [`8682da8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/8682da8)
 - :robot: changelog file generated [`1bc716a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1bc716a)
 - Add some badges in README [`06b9ba2`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/06b9ba2)
 
