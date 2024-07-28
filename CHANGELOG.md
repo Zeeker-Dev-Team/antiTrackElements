@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased changes
 
+### Documentation
+- Add some badges in README [`06b9ba2`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/06b9ba2)
+
+## stable_0.1.2 (2024-07-28)
+
 ### Feature
 - Add github repo link&icon [`1a523b3`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1a523b3)
 - Add thanks page. [`215c493`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/215c493)
@@ -17,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use workflows to generate changelog [`120f8a5`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/120f8a5)
 
 ### Documentation
+- :robot: changelog file generated [`8784bf7`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/8784bf7)
 - add actions-user as a contributor for doc [`0f920e8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/0f920e8)
 - update .all-contributorsrc [`32a0538`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/32a0538)
 - update README.md [`b92dcc6`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b92dcc6)
