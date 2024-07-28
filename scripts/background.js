@@ -53,3 +53,7 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
     });
   }
 });
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.tabs.create({ url: chrome.runtime.getURL("pages/thanks.html") });
+})
