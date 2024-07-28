@@ -31,3 +31,33 @@ jobs:
         git add CHANGELOG.md
         git commit -m "docs: :robot: changelog file generated" || echo "No changes to commit"
         git push
+
+  add-comment:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Get all commits on this push
+        id: get_commits
+        run: |
+            # 获取所有提交的日志
+            commits=$(git log --format="%H %s" ${{ github.event.before }}..${{ github.sha }})
+            echo "$commits"
+
+            # 将提交信息设置为输出
+            echo "::set-output name=commits::$commits"
+
+      - name: Add comment
+        run: gh issue comment "$NUMBER" --body "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: 10
+          BODY: >
+            ## New Push
+
+            ### Commits
+
+            ```
+            ${{ steps.get_commits.outputs.commits }}
+            ```
