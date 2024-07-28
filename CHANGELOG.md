@@ -7,12 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Feature
+- Add github repo link&icon [`1a523b3`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1a523b3)
+- Add thanks page. [`215c493`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/215c493)
 - Add rule groups [`e34b0ee`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/e34b0ee)
 
 ### Continuous Integration
+- Try fix errors in changelog.yml [`d53eab0`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/d53eab0)
+- Try fix errors in changelog.yml [`417434e`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/417434e)
 - Use workflows to generate changelog [`120f8a5`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/120f8a5)
 
 ### Documentation
+- :robot: changelog file generated [`3304730`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3304730)
 - Add FAQ files [`a7a525a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/a7a525a)
 - Add "Install Stable Version" part. [`b7e2bd9`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b7e2bd9)
 
