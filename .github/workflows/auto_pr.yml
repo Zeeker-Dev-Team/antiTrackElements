@@ -45,6 +45,7 @@ jobs:
         git add timestamp.txt
         git commit -m "Add timestamp file to ensure branch differences"
         git pull --rebase origin ${{ steps.hash_committer.outputs.branch_name }} || true
+        git pull
         git push origin ${{ steps.hash_committer.outputs.branch_name }}
 
     - name: Create or Update Pull Request
@@ -57,7 +58,7 @@ jobs:
         title: "Auto PR from ${{ steps.hash_committer.outputs.branch_name }}"
         body: "This is an automated PR created from ${{ steps.hash_committer.outputs.branch_name }}"
         draft: false
-        update_existing: true # Automatically update the existing PR if it exists
+        # update_existing: true # Automatically update the existing PR if it exists
 
   sync_commits:
     runs-on: ubuntu-latest
