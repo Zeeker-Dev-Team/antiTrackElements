@@ -53,6 +53,7 @@ jobs:
       if: env.branch_exists == 'false'
       run: |
         git checkout -b ${{ env.branch_name }}
+        git pull
         git push origin ${{ env.branch_name }}
 
     - name: Create Pull Request
