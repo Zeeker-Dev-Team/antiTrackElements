@@ -25,15 +25,15 @@ jobs:
           echo "committer=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
 
       - name: Create or update pull request
-        id: create_pr
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { context, getOctokit } = require('@actions/github');
+            const github = require('@actions/github');
             const core = require('@actions/core');
-            const { owner, repo } = context.repo;
-            const octokit = getOctokit(core.getInput('github-token'));
+            const octokit = github.getOctokit(core.getInput('github-token'));
+
+            const { owner, repo } = github.context.repo;
             const base = 'main';
             const head = 'dev';
             const commits = process.env.commits.split('\n').map(commit => `- ${commit}`).join('\n');
