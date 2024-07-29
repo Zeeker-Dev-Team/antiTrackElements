@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use config.yml to config some apps [`b56b665`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b56b665)
 
 ### Documentation
+- Add tips in doc [`beacfdc`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/beacfdc)
+- :robot: changelog file generated [`6c5aad9`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/6c5aad9)
 - :robot: changelog file generated [`00fff13`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/00fff13)
 - Add table of contents for FAQ [`3022858`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3022858)
 - :robot: changelog file generated [`826caf1`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/826caf1)
