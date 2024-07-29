@@ -24,6 +24,7 @@ jobs:
       run: |
         branch_name=$(echo -n "${{ env.committer_username }}" | md5sum | awk '{ print $1 }')
         echo "branch_name=dev_pr_$branch_name" >> $GITHUB_ENV
+        echo "Branch name: ${{ env.branch_name }}"
 
     - name: Configure git
       run: |
@@ -45,6 +46,7 @@ jobs:
       run: |
         pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
         echo "pr_number=$pr_number" >> $GITHUB_ENV
+        echo "Existing PR number: $pr_number"
 
     - name: Sync commits to existing PR branch
       if: env.branch_exists == 'true'
