@@ -55,7 +55,6 @@ jobs:
         git branch -M ${{ env.branch_name }}
         git checkout ${{ env.branch_name }}
         git config pull.rebase true
-        git pull origin ${{ env.branch_name }}
         git push origin ${{ env.branch_name }}
 
     - name: Create Pull Request
