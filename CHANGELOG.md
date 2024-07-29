@@ -7,11 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Continuous Integration
+- Add commit sync sys [`336ec2c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/336ec2c)
 - Remove `at` in auto reply [`6cf1367`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/6cf1367)
 - Change the config for create-issue-branch [`be517fe`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/be517fe)
 - Use config.yml to config some apps [`b56b665`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b56b665)
 
 ### Documentation
+- :robot: changelog file generated [`00fff13`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/00fff13)
 - Add table of contents for FAQ [`3022858`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3022858)
 - :robot: changelog file generated [`826caf1`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/826caf1)
 - Add 1 question in FAQ [`c653653`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/c653653)
