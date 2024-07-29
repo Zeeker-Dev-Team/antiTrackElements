@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use config.yml to config some apps [`b56b665`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b56b665)
 
 ### Documentation
+- Add table of contents for FAQ [`3022858`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3022858)
+- :robot: changelog file generated [`826caf1`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/826caf1)
 - Add 1 question in FAQ [`c653653`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/c653653)
 - :robot: changelog file generated [`ab591fe`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/ab591fe)
 - Update FAQ [`650f65d`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/650f65d)
@@ -23,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add code of conduct [`a176587`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/a176587)
 
 ### Other
+- Merge branch 'main' of https://github.com/Zeeker-Dev-Team/antiTrackElements [`2ca1839`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2ca1839)
 - Merge branch 'main' of https://github.com/Zeeker-Dev-Team/antiTrackElements [`a0013c0`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/a0013c0)
 - merge: test [`1f3241a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1f3241a)
 - Create draft PR for #13 [`bda043c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/bda043c)
