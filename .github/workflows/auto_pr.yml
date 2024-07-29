@@ -9,6 +9,10 @@ jobs:
   create_branch:
     runs-on: ubuntu-latest
 
+    outputs:
+      branch_name: ${{ steps.hash_committer.outputs.branch_name }}
+      branch_exists: ${{ steps.check_branch.outputs.branch_exists }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -24,10 +28,11 @@ jobs:
         echo "committer_email=$committer_email" >> $GITHUB_ENV
 
     - name: Hash committer username
+      id: hash_committer
       run: |
         branch_name=$(echo -n "${{ env.committer_username }}" | md5sum | awk '{ print $1 }')
         echo "branch_name=dev_pr_$branch_name" >> $GITHUB_ENV
-        echo "Branch name: ${{ env.branch_name }}"
+        echo "::set-output name=branch_name::dev_pr_$branch_name"
 
     - name: Configure git
       run: |
@@ -39,13 +44,13 @@ jobs:
       run: |
         git fetch origin
         if git show-ref --verify --quiet refs/remotes/origin/${{ env.branch_name }}; then
-          echo "branch_exists=true" >> $GITHUB_ENV
+          echo "::set-output name=branch_exists::true"
         else
-          echo "branch_exists=false" >> $GITHUB_ENV
+          echo "::set-output name=branch_exists::false"
         fi
 
     - name: Create and push new branch based on dev
-      if: env.branch_exists == 'false'
+      if: steps.check_branch.outputs.branch_exists == 'false'
       run: |
         git fetch origin
         git checkout dev
@@ -54,7 +59,7 @@ jobs:
         git push origin ${{ env.branch_name }}
 
     - name: Fetch, rebase and push to existing branch
-      if: env.branch_exists == 'true'
+      if: steps.check_branch.outputs.branch_exists == 'true'
       run: |
         git fetch origin
         git checkout ${{ env.branch_name }}
@@ -72,41 +77,38 @@ jobs:
     - name: Install GitHub CLI
       run: sudo apt-get install gh
 
-    - name: Get branch name from previous job
-      run: echo "branch_name=${{ needs.create_branch.outputs.branch_name }}" >> $GITHUB_ENV
-
     - name: Create Pull Request
-      if: env.branch_exists == 'false'
+      if: needs.create_branch.outputs.branch_exists == 'false'
       id: create_pr
       uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ env.branch_name }}
+        branch: ${{ needs.create_branch.outputs.branch_name }}
         base: main
-        title: "Auto PR from ${{ env.branch_name }}"
-        body: "This is an automated PR created from ${{ env.branch_name }}"
+        title: "Auto PR from ${{ needs.create_branch.outputs.branch_name }}"
+        body: "This is an automated PR created from ${{ needs.create_branch.outputs.branch_name }}"
         draft: false
 
     - name: Wait for PR creation
-      if: env.branch_exists == 'false'
-      run: sleep 30 # 等待 30 秒，确保 PR 被创建
+      if: needs.create_branch.outputs.branch_exists == 'false'
+      run: sleep 30 # Wait for 30 seconds to ensure PR creation is processed
 
     - name: Get PR number
-      if: env.branch_exists == 'false'
+      if: needs.create_branch.outputs.branch_exists == 'false'
       id: get_pr_number
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
+        pr_number=$(gh pr list --state open --head ${{ needs.create_branch.outputs.branch_name }} --json number -q '.[0].number')
         echo "pr_number=$pr_number" >> $GITHUB_ENV
         echo "PR number: $pr_number"
 
     - name: Append commit to existing PR
-      if: env.branch_exists == 'true'
+      if: needs.create_branch.outputs.branch_exists == 'true'
       id: append_commit
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
+        pr_number=$(gh pr list --state open --head ${{ needs.create_branch.outputs.branch_name }} --json number -q '.[0].number')
         echo "pr_number=$pr_number" >> $GITHUB_ENV
         gh pr comment $pr_number --body "New commits have been added to the PR."
