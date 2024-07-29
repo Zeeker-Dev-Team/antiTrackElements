@@ -6,7 +6,7 @@ on:
       - dev
 
 jobs:
-  handle_pr:
+  create_branch:
     runs-on: ubuntu-latest
 
     steps:
@@ -61,6 +61,20 @@ jobs:
         git pull origin ${{ env.branch_name }} --rebase
         git push origin ${{ env.branch_name }}
 
+  create_pr:
+    runs-on: ubuntu-latest
+    needs: create_branch
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install GitHub CLI
+      run: sudo apt-get install gh
+
+    - name: Get branch name from previous job
+      run: echo "branch_name=${{ needs.create_branch.outputs.branch_name }}" >> $GITHUB_ENV
+
     - name: Create Pull Request
       if: env.branch_exists == 'false'
       id: create_pr
@@ -75,7 +89,7 @@ jobs:
 
     - name: Wait for PR creation
       if: env.branch_exists == 'false'
-      run: sleep 20 # 等待 20 秒，确保 PR 被创建
+      run: sleep 30 # 等待 30 秒，确保 PR 被创建
 
     - name: Get PR number
       if: env.branch_exists == 'false'
@@ -89,10 +103,10 @@ jobs:
 
     - name: Append commit to existing PR
       if: env.branch_exists == 'true'
+      id: append_commit
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
         echo "pr_number=$pr_number" >> $GITHUB_ENV
-        echo "Appending commit to PR #${{ env.pr_number }}"
-        gh pr comment ${{ env.pr_number }} --body "New commits have been added to the PR."
+        gh pr comment $pr_number --body "New commits have been added to the PR."
