@@ -44,6 +44,7 @@ jobs:
         echo "$(date +%s%N)" > timestamp.txt # Create a file with current timestamp in nanoseconds
         git add timestamp.txt
         git commit -m "Add timestamp file to ensure branch differences"
+        git config pull.rebase true
         git pull origin ${{ steps.hash_committer.outputs.branch_name }}
         git push origin ${{ steps.hash_committer.outputs.branch_name }}
 
