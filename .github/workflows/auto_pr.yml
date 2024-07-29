@@ -57,7 +57,7 @@ jobs:
         git pull origin dev
         git checkout -b ${{ env.branch_name }}
         echo "$(date +%s%N)" > timestamp # Create a file with current timestamp in nanoseconds
-        git add timestamp.txt
+        git add timestamp
         git commit -m "Add timestamp file to ensure branch differences"
         git push origin ${{ env.branch_name }}
 
