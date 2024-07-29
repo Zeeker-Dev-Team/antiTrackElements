@@ -69,8 +69,15 @@ jobs:
         title: "Auto PR from ${{ env.branch_name }}"
         body: "This is an automated PR created from ${{ env.branch_name }}"
 
+    - name: Get PR number
+      if: env.branch_exists == 'true'
+      id: get_pr_number
+      run: |
+        pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
+        echo "pr_number=$pr_number" >> $GITHUB_ENV
+        echo "PR number: $pr_number"
+
     - name: Append commit to existing PR
       if: env.branch_exists == 'true'
       run: |
-        pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
-        gh pr comment ${{ pr_number }} --body "New commits have been added to the PR."
+        gh pr comment ${{ env.pr_number }} --body "New commits have been added to the PR."
