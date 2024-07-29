@@ -52,6 +52,7 @@ jobs:
     - name: Create new branch
       if: env.branch_exists == 'false'
       run: |
+        git branch -M ${{ env.branch_name }}
         git checkout -b ${{ env.branch_name }}
         git config pull.rebase true
         git pull origin ${{ env.branch_name }}
