@@ -32,29 +32,31 @@ jobs:
         git config --global user.name "${{ env.committer_username }}"
         git config --global user.email "${{ env.committer_email }}"
 
+    - name: Create and push new branch based on dev
+      if: env.branch_exists == 'false'
+      run: |
+        git fetch origin
+        git checkout dev
+        git pull origin dev
+        git checkout -b ${{ env.branch_name }}
+        git push origin ${{ env.branch_name }}
+
     - name: Check if PR branch exists
       id: check_branch
       run: |
-        if git show-ref --verify --quiet refs/heads/${{ env.branch_name }}; then
+        git fetch origin
+        if git show-ref --verify --quiet refs/remotes/origin/${{ env.branch_name }}; then
           echo "branch_exists=true" >> $GITHUB_ENV
         else
           echo "branch_exists=false" >> $GITHUB_ENV
         fi
 
-    - name: Fetch and merge remote branch
+    - name: Fetch, rebase and push to existing branch
       if: env.branch_exists == 'true'
       run: |
         git fetch origin
         git checkout ${{ env.branch_name }}
         git pull origin ${{ env.branch_name }} --rebase
-        git push origin HEAD:refs/heads/${{ env.branch_name }}
-
-    - name: Create new branch
-      if: env.branch_exists == 'false'
-      run: |
-        git branch -M ${{ env.branch_name }}
-        git checkout ${{ env.branch_name }}
-        git config pull.rebase true
         git push origin ${{ env.branch_name }}
 
     - name: Create Pull Request
@@ -70,4 +72,5 @@ jobs:
     - name: Append commit to existing PR
       if: env.branch_exists == 'true'
       run: |
-        gh pr comment ${{ env.pr_number }} --body "New commits have been added to the PR."
+        pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
+        gh pr comment ${{ pr_number }} --body "New commits have been added to the PR."
