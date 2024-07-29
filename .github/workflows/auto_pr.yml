@@ -1,4 +1,3 @@
-# .github/workflows/auto-pr.yml
 name: Auto PR
 
 on:
@@ -73,26 +72,30 @@ jobs:
         base: main
         title: "Auto PR from ${{ env.branch_name }}"
         body: "This is an automated PR created from ${{ env.branch_name }}"
-        draft: false # Ensure the PR is not a draft
+        draft: false
 
     - name: Wait for PR creation
       if: env.branch_exists == 'false'
-      run: sleep 10 # Wait for 10 seconds to ensure PR creation is processed
+      run: sleep 30 # 等待 30 秒
 
     - name: Get PR number
       if: env.branch_exists == 'false'
       id: get_pr_number
       env:
-        GH_TOKEN: ${{ github.token }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
         echo "pr_number=$pr_number" >> $GITHUB_ENV
         echo "PR number: $pr_number"
+        if [ -z "$pr_number" ]; then
+          echo "No PR found for branch ${{ env.branch_name }}"
+          exit 1
+        fi
 
     - name: Append commit to existing PR
       if: env.branch_exists == 'true'
       env:
-        GH_TOKEN: ${{ github.token }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
         echo "pr_number=$pr_number" >> $GITHUB_ENV
