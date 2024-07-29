@@ -56,6 +56,9 @@ jobs:
         git checkout dev
         git pull origin dev
         git checkout -b ${{ env.branch_name }}
+        echo "This commit ensures there is a difference." > .github/TIMESTAMP_$(date +%s).md
+        git add .github/TIMESTAMP_*.md
+        git commit -m "Add timestamp to ensure branch differences"
         git push origin ${{ env.branch_name }}
 
     - name: Fetch, rebase and push to existing branch
