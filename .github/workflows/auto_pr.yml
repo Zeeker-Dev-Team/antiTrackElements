@@ -1,3 +1,4 @@
+# .github/workflows/auto-pr.yml
 name: Auto PR
 
 on:
@@ -51,6 +52,8 @@ jobs:
     - name: Sync commits to existing PR branch
       if: env.branch_exists == 'true'
       run: |
+        git fetch origin ${{ env.branch_name }}
+        git rebase origin/${{ env.branch_name }}
         git push origin HEAD:refs/heads/${{ env.branch_name }}
 
     - name: Create new branch
