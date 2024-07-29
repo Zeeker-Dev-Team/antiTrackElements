@@ -35,6 +35,10 @@ Tips: 文档将很快迁移到单独仓库/网站。
 
 您可以在遵循许可证的情况下自由分发/使用此项目。
 
+## 贡献提示
+
+如果您对此存储库具有写权限，请仅推送到 dev 分支，CI 系统会自动创建一个 Pull Request
+
 ## 贡献者
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
