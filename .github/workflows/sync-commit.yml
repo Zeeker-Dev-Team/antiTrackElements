@@ -29,11 +29,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const github = require('@actions/github');
+            const { getOctokit, context } = require('@actions/github');
             const core = require('@actions/core');
-            const octokit = github.getOctokit(core.getInput('github-token'));
+            const octokit = getOctokit(core.getInput('github-token'));
 
-            const { owner, repo } = github.context.repo;
+            const { owner, repo } = context.repo;
             const base = 'main';
             const head = 'dev';
             const commits = process.env.commits.split('\n').map(commit => `- ${commit}`).join('\n');
