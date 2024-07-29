@@ -30,35 +30,42 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const { context, github } = require('@actions/github');
             const { owner, repo } = context.repo;
             const base = 'main';
             const head = 'dev';
             const commits = process.env.commits.split('\n').map(commit => `- ${commit}`).join('\n');
             const committer = process.env.committer;
 
-            const { data: existingPRs } = await github.pulls.list({
-              owner,
-              repo,
-              head: `${owner}:${head}`,
-              base,
-              state: 'open',
-            });
-
-            if (existingPRs.length > 0) {
-              const pr = existingPRs[0];
-              await github.pulls.update({
+            async function run() {
+              const { data: existingPRs } = await github.pulls.list({
                 owner,
                 repo,
-                pull_number: pr.number,
-                body: `${pr.body}\n\n${commits}`
-              });
-            } else {
-              await github.pulls.create({
-                owner,
-                repo,
-                title: 'Sync dev to main',
-                head,
+                head: `${owner}:${head}`,
                 base,
-                body: commits
+                state: 'open',
               });
+
+              if (existingPRs.length > 0) {
+                const pr = existingPRs[0];
+                await github.pulls.update({
+                  owner,
+                  repo,
+                  pull_number: pr.number,
+                  body: `${pr.body}\n\n${commits}`
+                });
+              } else {
+                await github.pulls.create({
+                  owner,
+                  repo,
+                  title: 'Sync dev to main',
+                  head,
+                  base,
+                  body: commits
+                });
+              }
             }
+
+            run().catch(error => {
+              core.setFailed(error.message);
+            });
