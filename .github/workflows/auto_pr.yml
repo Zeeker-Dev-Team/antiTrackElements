@@ -14,6 +14,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Install GitHub CLI
+      run: sudo apt-get install gh
+
     - name: Get committer username and email
       run: |
         committer_username=$(git log -1 --pretty=format:'%an')
@@ -32,15 +35,6 @@ jobs:
         git config --global user.name "${{ env.committer_username }}"
         git config --global user.email "${{ env.committer_email }}"
 
-    - name: Create and push new branch based on dev
-      if: env.branch_exists == 'false'
-      run: |
-        git fetch origin
-        git checkout dev
-        git pull origin dev
-        git checkout -b ${{ env.branch_name }}
-        git push origin ${{ env.branch_name }}
-
     - name: Check if PR branch exists
       id: check_branch
       run: |
@@ -50,6 +44,16 @@ jobs:
         else
           echo "branch_exists=false" >> $GITHUB_ENV
         fi
+
+    - name: Create and push new branch based on dev
+      if: env.branch_exists == 'false'
+      run: |
+        git fetch origin
+        git checkout dev
+        git pull origin dev
+        git checkout -b ${{ env.branch_name }}
+        git push origin ${{ env.branch_name }}
+        git branch -a # List all branches for debugging
 
     - name: Fetch, rebase and push to existing branch
       if: env.branch_exists == 'true'
@@ -80,4 +84,5 @@ jobs:
     - name: Append commit to existing PR
       if: env.branch_exists == 'true'
       run: |
+        echo "Appending commit to PR #${{ env.pr_number }}"
         gh pr comment ${{ env.pr_number }} --body "New commits have been added to the PR."
