@@ -41,19 +41,12 @@ jobs:
           echo "branch_exists=false" >> $GITHUB_ENV
         fi
 
-    - name: Get existing PR number
-      id: get_pr_number
+    - name: Fetch and merge remote branch
       if: env.branch_exists == 'true'
       run: |
-        pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
-        echo "pr_number=$pr_number" >> $GITHUB_ENV
-        echo "Existing PR number: $pr_number"
-
-    - name: Sync commits to existing PR branch
-      if: env.branch_exists == 'true'
-      run: |
-        git fetch origin ${{ env.branch_name }}
-        git rebase origin/${{ env.branch_name }}
+        git fetch origin
+        git checkout ${{ env.branch_name }}
+        git pull origin ${{ env.branch_name }} --rebase
         git push origin HEAD:refs/heads/${{ env.branch_name }}
 
     - name: Create new branch
