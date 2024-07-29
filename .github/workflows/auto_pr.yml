@@ -53,7 +53,7 @@ jobs:
       if: env.branch_exists == 'false'
       run: |
         git checkout -b ${{ env.branch_name }}
-        git config pull.rebase true
+        git config pull.rebase false
         git pull origin ${{ env.branch_name }}
         git push origin ${{ env.branch_name }}
 
