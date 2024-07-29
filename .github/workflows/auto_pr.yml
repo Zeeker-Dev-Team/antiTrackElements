@@ -87,6 +87,8 @@ jobs:
         fi
 
     - name: Append commit to existing PR
+      env:
+        GH_TOKEN: ${{ github.token }}
       if: env.branch_exists == 'true'
       run: |
         pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
