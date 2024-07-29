@@ -52,7 +52,6 @@ jobs:
         git pull origin dev
         git checkout -b ${{ env.branch_name }}
         git push origin ${{ env.branch_name }}
-        git branch -a # List all branches for debugging
 
     - name: Fetch, rebase and push to existing branch
       if: env.branch_exists == 'true'
@@ -66,7 +65,7 @@ jobs:
       if: env.branch_exists == 'false'
       id: create_pr
       run: |
-        curl -X POST \
+        response=$(curl -s -X POST \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -H "Accept: application/vnd.github.v3+json" \
           -d '{
@@ -75,22 +74,21 @@ jobs:
             "head": "${{ env.branch_name }}",
             "base": "main"
           }' \
-          https://api.github.com/repos/${{ github.repository }}/pulls
+          https://api.github.com/repos/${{ github.repository }}/pulls)
+        
+        echo "response=$response" >> $GITHUB_ENV
+        echo "PR creation response: $response"
 
     - name: Wait for PR creation
       if: env.branch_exists == 'false'
-      run: sleep 30 # 等待 30 秒
+      run: sleep 30 # 等待 30 秒，确保 PR 被创建
 
     - name: Get PR number
       if: env.branch_exists == 'false'
       run: |
-        pr_number=$(gh pr list --state open --head ${{ env.branch_name }} --json number -q '.[0].number')
+        pr_number=$(echo "${{ env.response }}" | jq -r .number)
         echo "pr_number=$pr_number" >> $GITHUB_ENV
         echo "PR number: $pr_number"
-        if [ -z "$pr_number" ]; then
-          echo "No PR found for branch ${{ env.branch_name }}"
-          exit 1
-        fi
 
     - name: Append commit to existing PR
       if: env.branch_exists == 'true'
