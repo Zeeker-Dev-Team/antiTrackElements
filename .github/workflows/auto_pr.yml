@@ -44,6 +44,7 @@ jobs:
         echo "$(date +%s%N)" > timestamp.txt # Create a file with current timestamp in nanoseconds
         git add timestamp.txt
         git commit -m "Add timestamp file to ensure branch differences"
+        git pull --rebase origin ${{ steps.hash_committer.outputs.branch_name }} || true
         git push origin ${{ steps.hash_committer.outputs.branch_name }}
 
     - name: Create or Update Pull Request
@@ -84,6 +85,6 @@ jobs:
     - name: Fetch and rebase on existing branch
       run: |
         git fetch origin
-        git checkout ${{ needs.create_or_update_pr.outputs.branch_name }}
-        git pull origin ${{ needs.create_or_update_pr.outputs.branch_name }} --rebase
-        git push origin ${{ needs.create_or_update_pr.outputs.branch_name }}
+        git checkout ${{ steps.hash_committer.outputs.branch_name }}
+        git pull origin ${{ steps.hash_committer.outputs.branch_name }} --rebase
+        git push origin ${{ steps.hash_committer.outputs.branch_name }}
