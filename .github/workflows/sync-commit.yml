@@ -30,16 +30,17 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const github = require('@actions/github');
+            const { context, getOctokit } = require('@actions/github');
             const core = require('@actions/core');
-            const { owner, repo } = github.context.repo;
+            const { owner, repo } = context.repo;
+            const octokit = getOctokit(core.getInput('github-token'));
             const base = 'main';
             const head = 'dev';
             const commits = process.env.commits.split('\n').map(commit => `- ${commit}`).join('\n');
             const committer = process.env.committer;
 
             async function run() {
-              const { data: existingPRs } = await github.rest.pulls.list({
+              const { data: existingPRs } = await octokit.rest.pulls.list({
                 owner,
                 repo,
                 head: `${owner}:${head}`,
@@ -49,14 +50,14 @@ jobs:
 
               if (existingPRs.length > 0) {
                 const pr = existingPRs[0];
-                await github.rest.pulls.update({
+                await octokit.rest.pulls.update({
                   owner,
                   repo,
                   pull_number: pr.number,
                   body: `${pr.body}\n\n${commits}`
                 });
               } else {
-                await github.rest.pulls.create({
+                await octokit.rest.pulls.create({
                   owner,
                   repo,
                   title: 'Sync dev to main',
