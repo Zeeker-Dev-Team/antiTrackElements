@@ -39,11 +39,11 @@ jobs:
                             "fields": [
                                 {
                                     "type": "mrkdwn",
-                                    "text": "*User* \n ${{ github.event.comment.user }}"
+                                    "text": "*User* \n <${{ github.event.comment.user.name }}|${{ github.event.comment.user.url }}>"
                                 },
                                 {
                                     "type": "mrkdwn",
-                                    "text": "*Issue/PR* \n ${{ github.event.comment.id }}"
+                                    "text": "*Issue/PR* \n #<${{ github.event.issue.number }}|>${{ github.event.issue.url }}"
                                 }
                             ]
                         },
@@ -60,7 +60,7 @@ jobs:
                                     "text": "Click Me"
                                 },
                                 "value": "link",
-                                "url": "${{ github.event.comment.issue_url }}",
+                                "url": "${{ github.event.comment.url }}",
                                 "action_id": "button-action"
                             }
                         }
@@ -69,3 +69,14 @@ jobs:
         env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+    
+      - name: Add comment
+        run: gh issue comment "$NUMBER" --body "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: >
+            Success.
+
+            > *I am a robot and this action was performed automatically.*
