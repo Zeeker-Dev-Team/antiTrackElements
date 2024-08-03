@@ -1,0 +1,30 @@
+name: "IssueOps"
+
+# the workflow to execute on is comments that are newly created
+on:
+  issue_comment:
+    types: [created]
+
+# permissions needed for reacting to IssueOps commands on issues and PRs
+permissions:
+  pull-requests: write
+  issues: write
+  checks: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      # execute IssueOps command logic, hooray!
+      # this will be used to "gate" all future steps below
+      - uses: github/command@main
+        id: command
+        with:
+          command: ".ping"
+
+      # run your custom logic for your project here - example seen below
+
+      # conditionally run some logic here
+      - name: ping
+        if: ${{ steps.command.outputs.continue == 'true' }}
+        run: echo "success"
