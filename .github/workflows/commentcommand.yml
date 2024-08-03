@@ -26,8 +26,8 @@ jobs:
 
       - name: Push new branch
         run: |
+          git config --global push.autoSetupRemote true
           git push origin $BRANCH_NAME
-          git branch --set-upstream-to=origin/$BRANCH_NAME $BRANCH_NAME
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
