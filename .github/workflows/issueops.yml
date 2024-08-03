@@ -43,7 +43,7 @@ jobs:
                                 },
                                 {
                                     "type": "mrkdwn",
-                                    "text": "*Issue/PR* \n #<${{ github.event.issue.number }}"
+                                    "text": "*Issue/PR* \n #${{ github.event.issue.number }}"
                                 }
                             ]
                         },
