@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add params export [`9d743c7`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/9d743c7)
 
 ### Continuous Integration
+- Update reply format [`e366ea7`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/e366ea7)
 - Update message format [`ef9f7a8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/ef9f7a8)
 - Fix message format [`dcd876a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/dcd876a)
 - Update message format, add reply for command [`250710c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/250710c)
@@ -74,6 +75,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use config.yml to config some apps [`b56b665`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b56b665)
 
 ### Documentation
+- :robot: changelog file generated [`3eb7a6b`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3eb7a6b)
 - :robot: changelog file generated [`f500859`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/f500859)
 - :robot: changelog file generated [`9f2ef1c`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/9f2ef1c)
 - :robot: changelog file generated [`d8e2c5b`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/d8e2c5b)
