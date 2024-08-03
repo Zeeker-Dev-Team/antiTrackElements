@@ -21,6 +21,7 @@ jobs:
           reaction: "eyes"
 
       - name: Send custom JSON data to Slack workflow
+        if: ${{ steps.command.outputs.continue == 'true' }}
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
         with:
@@ -71,6 +72,7 @@ jobs:
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     
       - name: Add comment
+        if: ${{ steps.command.outputs.continue == 'true' }}
         run: gh issue comment "$NUMBER" --body "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
