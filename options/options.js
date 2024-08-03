@@ -120,7 +120,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     exportButton.addEventListener('click', function() {
-        // 添加参数导出逻辑
-        
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(params));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "trackingParams.json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    });
+
+    importButton.addEventListener('click', function() {
+        importInput.click();
+    });
+
+    importInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedParams = JSON.parse(e.target.result);
+                    if (Array.isArray(importedParams)) {
+                        params = importedParams;
+                        renderTable(params);
+                        chrome.storage.sync.set({ trackingParams: params }, function() {
+                            console.log('导入的追踪参数已保存:', params);
+                            alert('追踪参数导入成功!');
+                        });
+                    } else {
+                        alert('导入的文件格式不正确。');
+                    }
+                } catch (error) {
+                    alert('导入过程中出现错误：' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
     });
 });
