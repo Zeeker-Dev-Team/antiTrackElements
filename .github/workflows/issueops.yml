@@ -79,4 +79,10 @@ jobs:
           BODY: >
             Success.
 
+            When using Ping Staff, please make sure you abide by our Code of Conduct.
+
+            Also remember that this project is maintained by the open source community, and Zeeker and the related team only maintain it and have no obligation to answer your questions.
+
+            Before asking questions, reading http://www.catb.org/~esr/faqs/smart-questions.html will save you and us a lot of unnecessary trouble.
+
             > *I am a robot and this action was performed automatically.*
