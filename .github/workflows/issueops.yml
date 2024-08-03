@@ -39,11 +39,11 @@ jobs:
                             "fields": [
                                 {
                                     "type": "mrkdwn",
-                                    "text": "*User* \n <${{ github.event.comment.user.name }}|${{ github.event.comment.user.url }}>"
+                                    "text": "*User* \n ${{ github.event.comment.user.name }}"
                                 },
                                 {
                                     "type": "mrkdwn",
-                                    "text": "*Issue/PR* \n #<${{ github.event.issue.number }}|>${{ github.event.issue.url }}"
+                                    "text": "*Issue/PR* \n #<${{ github.event.issue.number }}"
                                 }
                             ]
                         },
@@ -60,7 +60,7 @@ jobs:
                                     "text": "Click Me"
                                 },
                                 "value": "link",
-                                "url": "${{ github.event.comment.url }}",
+                                "url": "${{ github.event.comment.html_url }}",
                                 "action_id": "button-action"
                             }
                         }
