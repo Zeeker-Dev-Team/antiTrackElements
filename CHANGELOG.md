@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add params export [`9d743c7`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/9d743c7)
 
 ### Continuous Integration
+- Update IssueOps [`9834d5b`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/9834d5b)
 - Add issue allow in IssueOps [`6b53ac9`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/6b53ac9)
 - Add IssueOps system [`1db039d`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/1db039d)
 - Fix errors [`fdfe7f2`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/fdfe7f2)
@@ -70,6 +71,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use config.yml to config some apps [`b56b665`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b56b665)
 
 ### Documentation
+- :robot: changelog file generated [`152e9f8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/152e9f8)
 - :robot: changelog file generated [`5e8b819`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/5e8b819)
 - :robot: changelog file generated [`e790fab`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/e790fab)
 - :robot: changelog file generated [`f4eb29d`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/f4eb29d)
