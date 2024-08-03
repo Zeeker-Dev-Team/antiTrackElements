@@ -26,7 +26,7 @@ jobs:
 
       - name: Push new branch
         run: |
-          git push origin $BRANCH_NAME
+          git push -u origin $BRANCH_NAME
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
