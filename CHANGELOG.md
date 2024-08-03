@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Unreleased changes
 
 ### Continuous Integration
+- Fix errors [`cdef0ea`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/cdef0ea)
+- Fix errors [`9b1b080`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/9b1b080)
+- Fix errors [`313fe8d`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/313fe8d)
+- Fix errors [`2eaf7e7`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/2eaf7e7)
+- Fix errors [`aa98a9a`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/aa98a9a)
+- Fix errors [`68c1774`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/68c1774)
+- Fix errors [`78f830e`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/78f830e)
 - Add ChatOps system [`8ff5624`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/8ff5624)
 - Remove useless workflow [`a1a735b`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/a1a735b)
 - Fix errors [`b0d3e27`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b0d3e27)
@@ -57,6 +64,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use config.yml to config some apps [`b56b665`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b56b665)
 
 ### Documentation
+- :robot: changelog file generated [`f4eb29d`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/f4eb29d)
 - :robot: changelog file generated [`300e9a2`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/300e9a2)
 - :robot: changelog file generated [`84768d6`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/84768d6)
 - Add info about ci [`cc50bbd`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/cc50bbd)
@@ -81,6 +89,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Let code more readable [`b7df584`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b7df584)
 
 ### Other
+- Merge pull request #22 from Zeeker-Dev-Team/dev [`a6b5c4e`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/a6b5c4e)
+- Merge pull request #20 from Zeeker-Dev-Team/main [`b1e7ba1`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b1e7ba1)
 - Merge pull request #19 from Zeeker-Dev-Team/dev [`8b8f14f`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/8b8f14f)
 - Merge branch 'dev' of https://github.com/Zeeker-Dev-Team/antiTrackElements into dev [`3745f68`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3745f68)
 - Merge pull request #18 from Zeeker-Dev-Team/dev [`a019811`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/a019811)
