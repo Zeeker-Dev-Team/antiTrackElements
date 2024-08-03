@@ -1,0 +1,37 @@
+name: New Issue Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  create-branch-and-pr:
+    if: contains(github.event.comment.body, '/cba')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Create new branch
+        run: |
+          BRANCH_NAME="cba-branch-${{ github.event.issue.number }}-${{ github.run_id }}"
+          git checkout -b $BRANCH_NAME
+          echo "New branch created: $BRANCH_NAME"
+
+      - name: Push new branch
+        run: |
+          git push origin $BRANCH_NAME
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: 'PR From Issue'
+          body: 'closes #${{ github.event.issue.number }}'
+          branch: $BRANCH_NAME
+          base: main
