@@ -76,6 +76,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Use config.yml to config some apps [`b56b665`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/b56b665)
 
 ### Documentation
+- Update README [`cb91ec3`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/cb91ec3)
+- :robot: changelog file generated [`d54dbb7`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/d54dbb7)
 - :robot: changelog file generated [`0b95fb8`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/0b95fb8)
 - :robot: changelog file generated [`3eb7a6b`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/3eb7a6b)
 - :robot: changelog file generated [`f500859`](https://github.com/Zeeker-Dev-Team/antiTrackElements/commit/f500859)
